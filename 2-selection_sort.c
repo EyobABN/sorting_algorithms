@@ -9,10 +9,14 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	int min, temp;
-	size_t i, j, min_index;
+	int *p, min, temp;
+	size_t i, j, min_index, true_size = 0;
 
 	if (array == NULL)
+		return;
+	for (p = array; p != NULL; p++)
+		true_size++;
+	if (size > true_size)
 		return;
 	for (i = 0; i < size; i++)
 	{
