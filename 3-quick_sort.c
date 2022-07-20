@@ -19,15 +19,22 @@ int partition(int *arr, int low, int high, size_t size)
 		if (arr[j] <= pivot)
 		{
 			i++;
-			temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
+			if (i != j)
+			{
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+				print_array(arr, size);
+			}
 		}
 	}
-	temp = arr[i + 1];
-	arr[i + 1] = arr[high];
-	arr[high] = temp;
-	print_array(arr, size);
+	if (i + 1 != high)
+	{
+		temp = arr[i + 1];
+		arr[i + 1] = arr[high];
+		arr[high] = temp;
+		print_array(arr, size);
+	}
 	return (i + 1);
 }
 
