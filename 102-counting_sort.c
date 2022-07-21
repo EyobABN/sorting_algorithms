@@ -30,6 +30,7 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 1; i <= max; i++)
 		count[i] += count[i - 1];
+	print_array(count, max + 1);
 
 	sorted_arr = malloc(sizeof(int) * n);
 	if (sorted_arr == NULL)
@@ -39,7 +40,6 @@ void counting_sort(int *array, size_t size)
 		sorted_arr[count[array[i]] - 1] = array[i];
 		count[array[i]]--;
 	}
-	print_array(count, max + 1);
 	for (i = 0; i < n; i++)
 		array[i] = sorted_arr[i];
 	free(count);
